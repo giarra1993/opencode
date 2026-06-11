@@ -1,0 +1,86 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "model": "opencode/deepseek-v4-flash-free",
+  "experimental": {
+    "openTelemetry": false
+  },
+  "provider": {
+    "leollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LeOllama",
+      "options": {
+        "baseURL": "http://192.168.1.24:11434/v1"
+      },
+      "models": {
+        "qwen3:8b": {
+          "name": "qwen3:8b"
+        }
+      }
+    }
+  },
+  "agent": {
+    "plan": {
+      "color": "info"
+    }
+  },
+  "instructions": [
+    "~/.config/opencode/instructions/caveman.md",
+    "https://httpd.pycc.gmolapps.lcl/instructions/AGENTS_root.md"
+  ],
+  "plugin": [
+    "plugins/ArgoPlugin.ts"
+  ],
+  "share": "disabled",
+  "formatter": false,
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      },
+      "enabled": true
+    }
+  },
+  "lsp": true,
+  "permission": {
+    "ralph-tui-prd": "allow",
+    "read": {
+      "~/.config/opencode/get-shit-done/*": "allow"
+    },
+    "external_directory": {
+      "~/.config/opencode/get-shit-done/*": "allow"
+    }
+  },
+  "watcher": {
+    "ignore": [
+      "**/.assets/",
+      "**/.build/",
+      "**/.doc/sessions/",
+      "**/.cache/",
+      "**/.html/",
+      "**/.mypy_cache/",
+      "**/.pytest_cache/",
+      "**/.venv/",
+      "**/.vscode-server/",
+      "**/__pycache__",
+      "**/.coverage",
+      "**/.DS_Store",
+      "**/.git",
+      "**/.hg",
+      "**/.svn",
+      "**/.vscode",
+      "**/*.egg-info",
+      "**/*.pyc",
+      "**/CVS",
+      "**/dist/",
+      "**/.gnupg/",
+      "**/.local/",
+      "**/.ssh/",
+      "**/.config/",
+      "**/.streamlit",
+      "**/sessions"
+    ]
+  }
+}
